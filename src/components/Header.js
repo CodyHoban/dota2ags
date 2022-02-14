@@ -20,14 +20,17 @@ import {getStepConnectorUtilityClass} from "@mui/material";
 export default function Header(props) {
   // const classes = useStyles();
   // const theme = useTheme();
+  // const [strHeroList, setStrHeroList] = useState([]);
 
-  const getStr = async () => {
-    let heroList = await fetchHeroes();
-    const strHeroList = heroList.data.filter(
+  const getStr = () => {
+    const strHeroPool = props.activeHeroPool.filter(
       (hero) => hero.primary_attr === "str"
     );
-    console.log(strHeroList);
   };
+
+  const renderStrList = strHeroPool.map(({localized_name}) => (
+    <li>{localized_name}</li>
+  ));
 
   const getAgi = async () => {
     let heroList = await fetchHeroes();
@@ -55,6 +58,7 @@ export default function Header(props) {
             variant="contained"
             onClick={(e) => {
               getStr();
+              renderStrList();
             }}
           >
             Strength

@@ -6,26 +6,26 @@ import Header from "./components/Header";
 import theme from "./components/Theme";
 
 function App() {
-  const [activeHeroList, setActiveHeroList] = useState([]);
+  const [activeHeroPool, setActiveHeroPool] = useState([]);
 
   useEffect(async () => {
     const response = await fetchHeroes();
-    setActiveHeroList(response.data);
+    setActiveHeroPool(response.data);
   }, []);
 
-  const getStr = async () => {
-    let heroList = await fetchHeroes();
-    const strHeroList = heroList.data.filter(
-      (hero) => hero.primary_attr === "str"
-    );
-    console.log(strHeroList);
-  };
+  // const getStr = async () => {
+  //   let heroPool = await fetchHeroes();
+  //   const strHeroPool = heroPool.data.filter(
+  //     (hero) => hero.primary_attr === "str"
+  //   );
+  //   console.log(strHeroPool);
+  // };
 
   return (
     <div className="app">
       {/* <ThemeProvider theme={theme}> */}
-      <Header />
-      {console.log(activeHeroList)}
+      <Header activeHeroPool={activeHeroPool} />
+      {console.log(activeHeroPool)}
       {/* </ThemeProvider> */}
     </div>
   );
