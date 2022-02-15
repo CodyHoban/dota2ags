@@ -13,14 +13,6 @@ function App() {
     setActiveHeroPool(response.data);
   }, []);
 
-  // const getStr = async () => {
-  //   let heroPool = await fetchHeroes();
-  //   const strHeroPool = heroPool.data.filter(
-  //     (hero) => hero.primary_attr === "str"
-  //   );
-  //   console.log(strHeroPool);
-  // };
-
   return (
     <div className="app">
       {/* <ThemeProvider theme={theme}> */}

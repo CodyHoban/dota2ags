@@ -17,13 +17,17 @@ import {getStepConnectorUtilityClass} from "@mui/material";
 //   },
 // }));
 
-export default function Header(props) {
+// let data = {prop1, prop2, prop3, prop4, prop5, prop}
+// let {prop1} = data;
+// let Prop1 = data.prop1
+
+export default function Header({activeHeroPool}) {
   // const classes = useStyles();
   // const theme = useTheme();
   // const [strHeroList, setStrHeroList] = useState([]);
 
   const getStr = () => {
-    const strHeroPool = props.activeHeroPool.filter(
+    const strHeroPool = activeHeroPool.filter(
       (hero) => hero.primary_attr === "str"
     );
   };
